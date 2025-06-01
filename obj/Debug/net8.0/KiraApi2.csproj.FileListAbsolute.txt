@@ -113,4 +113,5 @@ C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\bin\D
 C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\bin\Debug\net8.0\KiraApi2.pdb
 C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\obj\Debug\net8.0\KiraApi2.genruntimeconfig.cache
 C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\obj\Debug\net8.0\ref\KiraApi2.dll
+C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\obj\Debug\net8.0\KiraApi2.sourcelink.json
 C:\Users\joaqu\OneDrive\Área de Trabalho\Codes\NaoMexer\KiraApi2\KiraApi2\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

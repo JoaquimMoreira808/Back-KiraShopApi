@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace KiraShopApi.Models
 {
@@ -9,6 +10,7 @@ namespace KiraShopApi.Models
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
 
+        [JsonIgnore]
         public ICollection<Produto> Produtos { get; set; }
     }
 }

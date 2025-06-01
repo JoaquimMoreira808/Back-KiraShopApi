@@ -709,6 +709,54 @@
         }
       }
     },
+    "/api/Produto/por-marca": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "parameters": [
+          {
+            "name": "marcaId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Produto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Produto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Produto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Usuarios": {
       "get": {
         "tags": [
@@ -847,13 +895,6 @@
           "nome": {
             "type": "string",
             "nullable": true
-          },
-          "produtos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Produto"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -931,27 +972,6 @@
         },
         "additionalProperties": false
       },
-      "Marca": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "type": "string",
-            "nullable": true
-          },
-          "produtos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Produto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Produto": {
         "type": "object",
         "properties": {
@@ -975,8 +995,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "marca": {
-            "$ref": "#/components/schemas/Marca"
+          "imagemUrl": {
+            "type": "string",
+            "nullable": true
           },
           "categorias": {
             "type": "array",
@@ -1006,6 +1027,10 @@
           "marcaId": {
             "type": "integer",
             "format": "int32"
+          },
+          "imagemUrl": {
+            "type": "string",
+            "nullable": true
           },
           "categoriaIds": {
             "type": "array",
@@ -1067,6 +1092,13 @@
           "nome": {
             "type": "string",
             "nullable": true
+          },
+          "produtos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadProdutoDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1093,6 +1125,10 @@
           "marcaId": {
             "type": "integer",
             "format": "int32"
+          },
+          "imagemUrl": {
+            "type": "string",
+            "nullable": true
           },
           "categoriaIds": {
             "type": "array",

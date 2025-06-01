@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using KiraApi2;
 using KiraShopApi.Models;
+using System;
 
 namespace KiraShopApi.Controllers
 {
@@ -25,6 +26,7 @@ namespace KiraShopApi.Controllers
                 .ToListAsync();
         }
 
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> Get(int id)
         {
@@ -39,10 +41,30 @@ namespace KiraShopApi.Controllers
             return produto;
         }
 
+        [HttpGet("por-marca")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetByMarca([FromQuery] int marcaId)
+        {
+            var produtos = await _context.Produtos
+                .Include(p => p.Marca)
+                .Include(p => p.Categorias)
+                .Where(p => p.MarcaId == marcaId)
+                .ToListAsync();
+
+            if (produtos.Count == 0)
+                return NotFound("Nenhum produto encontrado para essa marca.");
+
+            return produtos;
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<Produto>> Create(ProdutoCreateDto dto)
         {
-            // Verifica duplicidade
+            if (!string.IsNullOrEmpty(dto.ImagemUrl) && !IsValidUrl(dto.ImagemUrl))
+            {
+                return BadRequest("ImagemUrl inválida.");
+            }
+
             bool exists = await _context.Produtos.AnyAsync(p =>
                 p.Nome.ToLower().Trim() == dto.Nome.ToLower().Trim() &&
                 p.MarcaId == dto.MarcaId
@@ -51,12 +73,10 @@ namespace KiraShopApi.Controllers
             if (exists)
                 return Conflict("Já existe um produto com esse nome e marca.");
 
-            // Verifica se marca existe
             var marca = await _context.Marcas.FindAsync(dto.MarcaId);
             if (marca == null)
                 return BadRequest("Marca não encontrada.");
 
-            // Verifica se categorias existem
             var categorias = await _context.Categorias
                 .Where(c => dto.CategoriaIds.Contains(c.Id))
                 .ToListAsync();
@@ -64,7 +84,6 @@ namespace KiraShopApi.Controllers
             if (categorias.Count != dto.CategoriaIds.Count)
                 return BadRequest("Uma ou mais categorias não foram encontradas.");
 
-            // Valida preço
             if (dto.Preco <= 0)
                 return BadRequest("Preço deve ser maior que zero.");
 
@@ -74,7 +93,8 @@ namespace KiraShopApi.Controllers
                 Preco = dto.Preco,
                 Descricao = dto.Descricao?.Trim() ?? string.Empty,
                 MarcaId = dto.MarcaId,
-                Categorias = categorias
+                Categorias = categorias,
+                ImagemUrl = dto.ImagemUrl?.Trim()
             };
 
             _context.Produtos.Add(produto);
@@ -86,14 +106,17 @@ namespace KiraShopApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, ProdutoCreateDto dto)
         {
+            if (!string.IsNullOrEmpty(dto.ImagemUrl) && !IsValidUrl(dto.ImagemUrl))
+            {
+                return BadRequest("ImagemUrl inválida.");
+            }
+
             var produto = await _context.Produtos
                 .Include(p => p.Categorias)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (produto == null)
                 return NotFound();
-
-            // Verifica duplicidade ignorado o próprio 
 
             bool exists = await _context.Produtos.AnyAsync(p =>
                 p.Id != id &&
@@ -104,13 +127,9 @@ namespace KiraShopApi.Controllers
             if (exists)
                 return Conflict("Já existe um produto com esse nome e marca.");
 
-            // Verifica se marca existe
-
             var marca = await _context.Marcas.FindAsync(dto.MarcaId);
             if (marca == null)
                 return BadRequest("Marca não encontrada.");
-
-            // Verifica se as categorias existem
 
             var categorias = await _context.Categorias
                 .Where(c => dto.CategoriaIds.Contains(c.Id))
@@ -119,7 +138,6 @@ namespace KiraShopApi.Controllers
             if (categorias.Count != dto.CategoriaIds.Count)
                 return BadRequest("Uma ou mais categorias não foram encontradas.");
 
-            // Valida os preços
             if (dto.Preco <= 0)
                 return BadRequest("Preço deve ser maior que zero.");
 
@@ -128,6 +146,7 @@ namespace KiraShopApi.Controllers
             produto.Descricao = dto.Descricao?.Trim() ?? string.Empty;
             produto.MarcaId = dto.MarcaId;
             produto.Categorias = categorias;
+            produto.ImagemUrl = dto.ImagemUrl?.Trim();
 
             await _context.SaveChangesAsync();
 
@@ -146,6 +165,12 @@ namespace KiraShopApi.Controllers
 
             return NoContent();
         }
+
+        private bool IsValidUrl(string url)
+        {
+            return Uri.TryCreate(url, UriKind.Absolute, out Uri? uriResult)
+                   && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+        }
     }
 
     public class ProdutoCreateDto
@@ -154,6 +179,7 @@ namespace KiraShopApi.Controllers
         public decimal Preco { get; set; }
         public string? Descricao { get; set; }
         public int MarcaId { get; set; }
+        public string? ImagemUrl { get; set; }
         public List<int> CategoriaIds { get; set; } = new();
     }
 }

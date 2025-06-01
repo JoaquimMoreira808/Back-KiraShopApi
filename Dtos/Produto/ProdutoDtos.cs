@@ -9,24 +9,10 @@ namespace KiraShopApi.Dtos.Produto
         public decimal Preco { get; set; }
         public string Descricao { get; set; }
         public int MarcaId { get; set; }
+        public string ImagemUrl { get; set; }
         public List<int> CategoriaIds { get; set; }
     }
 
-    public class UpdateProdutoDto
-    {
-        [Required]
-        public string Nome { get; set; }
-         
-        [Required]
-        public decimal Preco { get; set; }
-
-        public string Descricao { get; set; }
-
-        [Required]
-        public int MarcaId { get; set; }
-
-        public List<int> CategoriaIds { get; set; } = new();
-    }
     public class CreateProdutoDto
     {
         [Required]
@@ -40,7 +26,26 @@ namespace KiraShopApi.Dtos.Produto
         [Required]
         public int MarcaId { get; set; }
 
+        public string ImagemUrl { get; set; }
+
         public List<int> CategoriaIds { get; set; } = new();
     }
 
+    public class UpdateProdutoDto
+    {
+        [Required]
+        public string Nome { get; set; }
+
+        [Required]
+        public decimal Preco { get; set; }
+
+        public string Descricao { get; set; }
+
+        [Required]
+        public int MarcaId { get; set; }
+
+        public string ImagemUrl { get; set; }
+
+        public List<int> CategoriaIds { get; set; } = new();
+    }
 }

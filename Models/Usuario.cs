@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace KiraShopApi.Models
 {
@@ -11,6 +12,7 @@ namespace KiraShopApi.Models
         public string CPF { get; set; } = string.Empty;
         public bool Tipo { get; set; }
 
+        [JsonIgnore]
         public Carrinho Carrinho { get; set; }
     }
 }
