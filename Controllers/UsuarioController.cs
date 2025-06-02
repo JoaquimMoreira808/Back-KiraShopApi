@@ -60,15 +60,12 @@ namespace KiraShopApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUsuario([FromBody] CreateUsuarioDto createDto)
         {
-            // Validação do modelo (DataAnnotations)
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // Verifica se o CPF já está cadastrado (único)
             if (await _context.Usuarios.AnyAsync(u => u.CPF == createDto.CPF))
                 return Conflict(new { message = "CPF já cadastrado." });
 
-            // Verifica se o Email já está cadastrado (único)
             if (await _context.Usuarios.AnyAsync(u => u.Email == createDto.Email))
                 return Conflict(new { message = "Email já cadastrado." });
 
@@ -76,7 +73,7 @@ namespace KiraShopApi.Controllers
             {
                 Nome = createDto.Nome,
                 Email = createDto.Email,
-                Senha = createDto.Senha, // Aqui pode aplicar hash da senha, se quiser
+                Senha = createDto.Senha,
                 CPF = createDto.CPF,
                 Tipo = createDto.Tipo
             };
@@ -107,21 +104,18 @@ namespace KiraShopApi.Controllers
             if (usuario == null)
                 return NotFound();
 
-            // Verifica se o CPF está sendo atualizado para um já existente em outro usuário
             if (await _context.Usuarios.AnyAsync(u => u.CPF == updateDto.CPF && u.Id != id))
                 return Conflict(new { message = "CPF já cadastrado por outro usuário." });
 
-            // Verifica se o Email está sendo atualizado para um já existente em outro usuário
             if (await _context.Usuarios.AnyAsync(u => u.Email == updateDto.Email && u.Id != id))
                 return Conflict(new { message = "Email já cadastrado por outro usuário." });
 
             usuario.Nome = updateDto.Nome;
             usuario.Email = updateDto.Email;
 
-            // Atualiza senha somente se foi fornecida (não nula ou vazia)
             if (!string.IsNullOrWhiteSpace(updateDto.Senha))
             {
-                usuario.Senha = updateDto.Senha; // aqui pode aplicar hash
+                usuario.Senha = updateDto.Senha;
             }
 
             usuario.CPF = updateDto.CPF;

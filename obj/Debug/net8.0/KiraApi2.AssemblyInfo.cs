@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KiraApi2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a35c5c6ba3521de521c0cfa31548faf3999eb19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35cf66ff04b153cf0d34e2030895ef96af48cf6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("KiraApi2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KiraApi2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
