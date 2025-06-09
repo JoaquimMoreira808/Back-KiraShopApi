@@ -7234,23 +7234,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joaqu\\.nuget\\packages\\": {},
+    "C:\\Users\\Felip\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaqu\\OneDrive\\Área de Trabalho\\Codes\\NaoMexer\\KiraApi2\\KiraApi2\\KiraApi2.csproj",
+      "projectUniqueName": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\projeto_kira_shop\\projeto_kira_shop\\backend\\KiraApi2.csproj",
       "projectName": "KiraApi2",
-      "projectPath": "C:\\Users\\joaqu\\OneDrive\\Área de Trabalho\\Codes\\NaoMexer\\KiraApi2\\KiraApi2\\KiraApi2.csproj",
-      "packagesPath": "C:\\Users\\joaqu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaqu\\OneDrive\\Área de Trabalho\\Codes\\NaoMexer\\KiraApi2\\KiraApi2\\obj\\",
+      "projectPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\projeto_kira_shop\\projeto_kira_shop\\backend\\KiraApi2.csproj",
+      "packagesPath": "C:\\Users\\Felip\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\projeto_kira_shop\\projeto_kira_shop\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\joaqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7321,7 +7321,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

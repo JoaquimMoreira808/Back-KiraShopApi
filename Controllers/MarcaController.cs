@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using KiraShopApi.Dtos.Marca;
 using KiraShopApi.Models;
-using KiraApi2;  
+using KiraApi2;
 
 namespace KiraShopApi.Controllers
 {
@@ -98,6 +98,14 @@ namespace KiraShopApi.Controllers
             var marca = await _context.Marcas.FindAsync(id);
 
             if (marca == null) return NotFound();
+
+            // Verificar se existem produtos vinculados a esta marca
+            var produtosVinculados = await _context.Produtos.AnyAsync(p => p.MarcaId == id);
+
+            if (produtosVinculados)
+            {
+                return BadRequest(new { message = "Não é possível excluir esta marca pois existem produtos vinculados a ela." });
+            }
 
             _context.Marcas.Remove(marca);
             await _context.SaveChangesAsync();

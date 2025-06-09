@@ -8,7 +8,8 @@ namespace KiraShopApi.Dtos.Carrinho
     {
         public int Id { get; set; }
         public int UsuarioId { get; set; }
-        public string UsuarioNome { get; set; }
-        public List<ReadProdutoDto> Produtos { get; set; } = new();
+        public string UsuarioNome { get; set; } = string.Empty;
+        public List<ReadCarrinhoItemDto> Itens { get; set; } = new();
+        public decimal Total => Itens.Sum(i => i.Subtotal);
     }
 }

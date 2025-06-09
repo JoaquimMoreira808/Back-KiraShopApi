@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\ProdutoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\ProdutoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\MarcaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\MarcaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 851,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MarcaController.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\MarcaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MarcaController.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\MarcaController.cs",
+              "RelativeToolTip": "Controllers\\MarcaController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:36:31.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAC8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:36:22.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:24:04.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Produto.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Produto.cs",
+              "RelativeDocumentMoniker": "Models\\Produto.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Produto.cs",
+              "RelativeToolTip": "Models\\Produto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:23:38.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Marca.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Marca.cs",
+              "RelativeDocumentMoniker": "Models\\Marca.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Marca.cs",
+              "RelativeToolTip": "Models\\Marca.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:23:37.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Categoria.cs",
+              "RelativeToolTip": "Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:23:36.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Carrinho.cs",
+              "DocumentMoniker": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Carrinho.cs",
+              "RelativeDocumentMoniker": "Models\\Carrinho.cs",
+              "ToolTip": "C:\\Users\\Felip\\OneDrive\\Documentos\\Projetos\\BackEnd_KiraShopAPI\\Back-KiraShopApi\\Models\\Carrinho.cs",
+              "RelativeToolTip": "Models\\Carrinho.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:23:33.546Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 558,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

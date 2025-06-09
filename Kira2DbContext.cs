@@ -12,6 +12,7 @@ public partial class KiraApiDbContext : DbContext
     public DbSet<Marca> Marcas { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Carrinho> Carrinhos { get; set; }
+    public DbSet<CarrinhoItem> CarrinhoItens { get; set; }
 
     public KiraApiDbContext()
     {
@@ -23,7 +24,7 @@ public partial class KiraApiDbContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=localhost;user id=root;password=mudar;database=kira2db",
+        => optionsBuilder.UseMySql("server=localhost;user id=root;password=;database=kira2db",
             Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.42-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -55,11 +56,17 @@ public partial class KiraApiDbContext : DbContext
             .WithMany(c => c.Produtos)
             .UsingEntity(j => j.ToTable("ProdutoCategoria"));
 
-        // Carrinho-Produto N:N
-        modelBuilder.Entity<Carrinho>()
-            .HasMany(c => c.Produtos)
+        // Carrinho-CarrinhoItem 1:N
+        modelBuilder.Entity<CarrinhoItem>()
+            .HasOne(ci => ci.Carrinho)
+            .WithMany(c => c.Itens)
+            .HasForeignKey(ci => ci.CarrinhoId);
+
+        // Produto-CarrinhoItem 1:N
+        modelBuilder.Entity<CarrinhoItem>()
+            .HasOne(ci => ci.Produto)
             .WithMany()
-            .UsingEntity(j => j.ToTable("CarrinhoProduto"));
+            .HasForeignKey(ci => ci.ProdutoId);
 
         OnModelCreatingPartial(modelBuilder);
     }

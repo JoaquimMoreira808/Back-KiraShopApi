@@ -23,21 +23,6 @@ namespace KiraApi2.Migrations
             MySqlModelBuilderExtensions.HasCharSet(modelBuilder, "utf8mb4");
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("CarrinhoProduto", b =>
-                {
-                    b.Property<int>("CarrinhoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProdutosId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarrinhoId", "ProdutosId");
-
-                    b.HasIndex("ProdutosId");
-
-                    b.ToTable("CarrinhoProduto", (string)null);
-                });
-
             modelBuilder.Entity("CategoriaProduto", b =>
                 {
                     b.Property<int>("CategoriasId")
@@ -70,6 +55,32 @@ namespace KiraApi2.Migrations
                         .IsUnique();
 
                     b.ToTable("Carrinhos");
+                });
+
+            modelBuilder.Entity("KiraShopApi.Models.CarrinhoItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CarrinhoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarrinhoId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("CarrinhoItens");
                 });
 
             modelBuilder.Entity("KiraShopApi.Models.Categoria", b =>
@@ -163,8 +174,8 @@ namespace KiraApi2.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("Tipo")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -172,21 +183,6 @@ namespace KiraApi2.Migrations
                         .IsUnique();
 
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("CarrinhoProduto", b =>
-                {
-                    b.HasOne("KiraShopApi.Models.Carrinho", null)
-                        .WithMany()
-                        .HasForeignKey("CarrinhoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("KiraShopApi.Models.Produto", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("CategoriaProduto", b =>
@@ -215,6 +211,25 @@ namespace KiraApi2.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("KiraShopApi.Models.CarrinhoItem", b =>
+                {
+                    b.HasOne("KiraShopApi.Models.Carrinho", "Carrinho")
+                        .WithMany("Itens")
+                        .HasForeignKey("CarrinhoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KiraShopApi.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Carrinho");
+
+                    b.Navigation("Produto");
+                });
+
             modelBuilder.Entity("KiraShopApi.Models.Produto", b =>
                 {
                     b.HasOne("KiraShopApi.Models.Marca", "Marca")
@@ -226,6 +241,11 @@ namespace KiraApi2.Migrations
                     b.Navigation("Marca");
                 });
 
+            modelBuilder.Entity("KiraShopApi.Models.Carrinho", b =>
+                {
+                    b.Navigation("Itens");
+                });
+
             modelBuilder.Entity("KiraShopApi.Models.Marca", b =>
                 {
                     b.Navigation("Produtos");
@@ -233,8 +253,7 @@ namespace KiraApi2.Migrations
 
             modelBuilder.Entity("KiraShopApi.Models.Usuario", b =>
                 {
-                    b.Navigation("Carrinho")
-                        .IsRequired();
+                    b.Navigation("Carrinho");
                 });
 #pragma warning restore 612, 618
         }

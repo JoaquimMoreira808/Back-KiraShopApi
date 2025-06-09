@@ -18,12 +18,71 @@ namespace KiraShopApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Produto>>> GetAll()
+        public async Task<ActionResult<object>> GetAll(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] int? marcaId = null,
+            [FromQuery] int? categoriaId = null,
+            [FromQuery] string? search = null)
         {
-            return await _context.Produtos
+            var query = _context.Produtos
                 .Include(p => p.Marca)
                 .Include(p => p.Categorias)
+                .AsQueryable();
+
+            // Filtro por marca
+            if (marcaId.HasValue)
+            {
+                query = query.Where(p => p.MarcaId == marcaId.Value);
+            }
+
+            // Filtro por categoria
+            if (categoriaId.HasValue)
+            {
+                query = query.Where(p => p.Categorias.Any(c => c.Id == categoriaId.Value));
+            }
+
+            // Filtro por busca
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(p => p.Nome.Contains(search) || p.Descricao.Contains(search));
+            }
+
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            var produtos = await query
+                .OrderByDescending(p => p.Id) // Ordenar por ID decrescente (mais recentes primeiro)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+
+            return Ok(new
+            {
+                produtos = produtos,
+                pagination = new
+                {
+                    currentPage = page,
+                    pageSize = pageSize,
+                    totalItems = totalItems,
+                    totalPages = totalPages,
+                    hasNextPage = page < totalPages,
+                    hasPreviousPage = page > 1
+                }
+            });
+        }
+
+        [HttpGet("lancamentos")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetLancamentos()
+        {
+            var produtos = await _context.Produtos
+                .Include(p => p.Marca)
+                .Include(p => p.Categorias)
+                .OrderByDescending(p => p.Id) // Ordenar por ID decrescente (mais recentes primeiro)
+                .Take(5)
+                .ToListAsync();
+
+            return Ok(produtos);
         }
 
 
@@ -41,8 +100,8 @@ namespace KiraShopApi.Controllers
             return produto;
         }
 
-        [HttpGet("por-marca")]
-        public async Task<ActionResult<IEnumerable<Produto>>> GetByMarca([FromQuery] int marcaId)
+        [HttpGet("marca/{marcaId}")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetByMarca(int marcaId)
         {
             var produtos = await _context.Produtos
                 .Include(p => p.Marca)
@@ -52,6 +111,21 @@ namespace KiraShopApi.Controllers
 
             if (produtos.Count == 0)
                 return NotFound("Nenhum produto encontrado para essa marca.");
+
+            return produtos;
+        }
+
+        [HttpGet("categoria/{categoriaId}")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetByCategoria(int categoriaId)
+        {
+            var produtos = await _context.Produtos
+                .Include(p => p.Marca)
+                .Include(p => p.Categorias)
+                .Where(p => p.Categorias.Any(c => c.Id == categoriaId))
+                .ToListAsync();
+
+            if (produtos.Count == 0)
+                return NotFound("Nenhum produto encontrado para essa categoria.");
 
             return produtos;
         }
@@ -146,7 +220,7 @@ namespace KiraShopApi.Controllers
             produto.Descricao = dto.Descricao?.Trim() ?? string.Empty;
             produto.MarcaId = dto.MarcaId;
             produto.Categorias = categorias;
-            produto.ImagemUrl = dto.ImagemUrl?.Trim();
+            produto.ImagemUrl = dto.ImagemUrl?.Trim() ?? string.Empty;
 
             await _context.SaveChangesAsync();
 
@@ -183,3 +257,4 @@ namespace KiraShopApi.Controllers
         public List<int> CategoriaIds { get; set; } = new();
     }
 }
+

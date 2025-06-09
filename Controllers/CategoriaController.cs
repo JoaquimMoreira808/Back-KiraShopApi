@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using KiraShopApi.Dtos.Categoria;
 using KiraShopApi.Models;
-using KiraApi2; 
+using KiraApi2;
 
 namespace KiraShopApi.Controllers
 {
@@ -102,6 +102,16 @@ namespace KiraShopApi.Controllers
             var categoria = await _context.Categorias.FindAsync(id);
             if (categoria == null)
                 return NotFound();
+
+            // Verificar se existem produtos vinculados a esta categoria
+            var produtosVinculados = await _context.Produtos
+                .Include(p => p.Categorias)
+                .AnyAsync(p => p.Categorias.Any(c => c.Id == id));
+
+            if (produtosVinculados)
+            {
+                return BadRequest(new { message = "Não é possível excluir esta categoria pois existem produtos vinculados a ela." });
+            }
 
             _context.Categorias.Remove(categoria);
             await _context.SaveChangesAsync();
